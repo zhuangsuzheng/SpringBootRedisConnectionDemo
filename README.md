@@ -1,1 +1,7 @@
 # SpringBoot_Study_Demo
+
+application.yml文件里的Redis是我的服务器Redis，也就是说大家download下来项目可以直接运行进行测试
+
+希望大家再使用这个Redis不要乱放东西，服务器资源有限
+
+你也可以将里面的配置信息改成你的Redis

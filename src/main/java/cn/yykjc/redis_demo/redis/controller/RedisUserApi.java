@@ -14,16 +14,23 @@ public class RedisUserApi {
     @Autowired
     RedisTemplate redisTemplate;
 
-    @GetMapping("/setValue")
+    @GetMapping("/setGetValue")
     public Object setValue(String str) {
 
         redisTemplate.opsForValue().set("str",str);
         return "Redis取回的数据为:" + redisTemplate.opsForValue().get("str");
     }
 
-    @GetMapping("/setHash")
+    @GetMapping("/setGetHash")
     public Object setHash() {
+
         redisTemplate.opsForHash().put("hashKey","key","log");
         return redisTemplate.opsForHash().get("hashKey","key");
+    }
+
+    @GetMapping("/setGetSet")
+    public Object setGetSet() {
+        redisTemplate.opsForSet().add("setKey1","value");
+        return redisTemplate.opsForSet().pop("setKey1");
     }
 }
